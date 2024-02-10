@@ -1,0 +1,70 @@
+Hello World,
+This application is also to serve as a base for future applications using the same stack. 
+Once the nuts and bolts are installed and operating you can use this to build out any kind of app by changing the db, 
+the ui, and the functions.
+
+Steps:
+    VIDEO 1: https://www.youtube.com/watch?v=-0exw-9YJBo
+1.  Created 'backend' folder.
+2.  Created /backend/server.js
+3.  TERMINAL 'npm init' to create package.json and then also created '.gitignore' in the root folder to exclude git syncing for some dev exclusive files.
+4.  TERMINAL 'npm i express dotenv mongoose colors' to install backend dependencies
+5.  TERMINAL 'npm i -D nodemon' to install nodemon as a dev dependency (meaning will not export to the production build, installed only for dev)
+6.  in package.json added two scripts:
+    "start": "node backend/server.js", //regular run with 'npm start'
+    "server": "nodemon backend/server.js" //nodemon run with 'npm run server'
+7.  Initialize and commit git repository via TERMINAL:
+    git init
+    git add .
+    git commit -m 'Initial Commit'
+8.  server.js: https://i.imgur.com/f5nieIp.png
+9.  Created .env in root folder to store ENVIRONMENTAL_VARIABLES (which is like the 'control' sheet in your excel apps)
+10. Set up basic routes for API
+    https://i.imgur.com/rVst0LM.png
+    https://i.imgur.com/uj9WD9t.png
+11. Don't forget urlencoder and body parser to be able to read req.body
+    https://i.imgur.com/EjMJxr6.png
+12. Modified error handler middleware:
+    https://i.imgur.com/rEJeoPj.png
+    this imported to server.js with const {errorHandler} = require('path') and then app.use(errorHandler)
+13. Install express async handler with:
+    TERMINAL: 'npm i express-async-handler'
+14. Wrapped all controller functions in asyncHandler()
+15. Created MONGO_URI variable in .env also /backend/config/db.js with mongoose connect to database function. Imported and called function to server.js as connectDB().
+16. Created backend/models/goalModel and constructed Schema
+17. Added to relevant controller functions 
+    Goal.find()
+    Goal.findById(req.params.id)
+    Goal.findByIdAndUpdate(req.params.id)
+18. Install bcryptjs for user authentication routes and controllers with
+    TERMINAL: 'npm i bcryptjs'
+    TERMINAL: 'npm i jsonwebtoken'
+19. CRUD for Authorization and Goals completed. Backend complete.
+        
+    VIDEO 3: https://www.youtube.com/watch?v=mvfsC66xqj0
+20. Create react app with 'redux' template for frontend with
+    TERMINAL: 'npx create-react-app frontend --template redux'
+21. Condensed frontend/src/app.js to remove boilerplate and redux nonsense now looks like this: https://i.imgur.com/6RAZA3s.png
+22. Similarly for frontend/app/store.js to this: https://i.imgur.com/aPrniHU.png
+23. Created frontend/src/pages/Dashboard.jsx && Login.jsx && Register.jsx
+24. Installed react router dom with
+    TERMINAL: 'cd frontend'
+    TERMINAL: 'npm i react-router-dom'
+25. Install react icons with
+    TERMINAL: 'cd frontend'
+    TERMINAL: 'npm i react-icons'
+26. Created login and register form.
+27. Installed concurrently to run both back and frontend with
+    TERMINAL: 'npm i -D concurrently'
+    Also added to package.json under scripts
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+    allows 'npm run dev' to run both back and frontend simultaneously
+28. Installed Axios and Toastify into front end with
+    TERMINAL: 'cd frontend'
+    TERMINAL: 'npm i axios react-toastify'
+    //axios sends and receives http requests and api calls, does basically what postman does, but through the app.
+29. Starting to lose track of what I'm doing in here.
+30. Added proxy variable to frontend package.json: https://i.imgur.com/mPTFZRt.png
+    This allows full url in frontend/src/features/auth/authService.js
+31. Missed a lot in the middle here. But finished tracing the app. then went back through and noted everything, extremely helpful to add this step.
+    now watching again and following with already notated code.
