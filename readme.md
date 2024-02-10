@@ -4,9 +4,11 @@ This boilerplate is based on the goalsetter app from the [Learn the MERN Stack](
 
 ## Usage
 
+```
 Within .env update the MONGO_URI and JWT_SECRET
 Ensure that localhost is not logged in (user token in localstorage)
 Remember you can change the 'proxy' in frontend package.json to send api calls to live servers even in development
+```
 
 ### Install dependencies
 
